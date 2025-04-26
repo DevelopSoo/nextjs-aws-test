@@ -17,9 +17,8 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           password: ${{ secrets.EC2_PEM_KEY }}
-          script_stop: true
-          # 배포할 폴더로 이동 및 소스 코드 업데이트
           script: |
+            set -e
             cd /home/ubuntu/nextjs-aws-test 
             git pull origin main
             npm ci
