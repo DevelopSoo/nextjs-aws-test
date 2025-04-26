@@ -47,7 +47,7 @@ jobs:
         # ./$GITHUB_SHA.tar.gz: github actions에서 복사할 파일 경로
         # s3://codeit-nextjs-aws-test-storage/$GITHUB_SHA.tar.gz: S3에 복사할 위치
         run: aws s3 cp --region ap-northeast-2 ./$GITHUB_SHA.tar.gz s3://codeit-nextjs-aws-test-storage/$GITHUB_SHA.tar.gz
-      
+
       - name: Code Deploy를 활용해 EC2에 프로젝트 코드 배포
         # aws deploy 명령어
         # create-deployment: 배포 생성 -> 원래는 codeDeploy의 애플리케이션 -> 배포 그룹 -> 배포 생성을 통해서 할 수 있는 걸 CLI 로 작성하는 것
