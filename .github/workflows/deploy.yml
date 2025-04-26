@@ -21,7 +21,7 @@ jobs:
             set -e
             cd /home/ubuntu/nextjs-aws-test 
             git pull origin main
+            pm2 kill
             npm ci
             npm run build
-            pm2 kill
             pm2 start npm --name "nextjs-app" -- start
