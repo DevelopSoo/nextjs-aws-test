@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <div>
-      <div>한국어: 안녕 docker 배포 테스트</div>
+      <div>한국어: 안녕 docker 배포 테스트 2</div>
       <div>영어: {message}</div>
     </div>
   );
