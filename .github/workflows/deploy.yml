@@ -43,10 +43,10 @@ jobs:
         run: docker build -t nextjs-aws-test .
 
       - name: Docker 이미지에 Tag 붙이기
-        run: docker tag nextjs-aws-test ${{ steps.login-ecr.outputs.registry }}/nextjs-aws-test:latest
+        run: docker tag nextjs-aws-test ${{ steps.login-ecr.outputs.registry }}/codeit-nextjs-ecr-repo:latest
 
       - name: ECR에 Docker 이미지 Push하기
-        run: docker push ${{ steps.login-ecr.outputs.registry }}/nextjs-aws-test:latest
+        run: docker push ${{ steps.login-ecr.outputs.registry }}/codeit-nextjs-ecr-repo:latest
 
       - name: SSH로 EC2에 접속하기
         uses: appleboy/ssh-action@v1.0.3
@@ -58,5 +58,5 @@ jobs:
             set -e
             docker stop nextjs-aws-test || true
             docker rm nextjs-aws-test || true
-            docker pull ${{ steps.login-ecr.outputs.registry }}/nextjs-aws-test:latest
-            docker run -d --name nextjs-aws-test -p 3000:3000 ${{ steps.login-ecr.outputs.registry }}/nextjs-aws-test:latest
+            docker pull ${{ steps.login-ecr.outputs.registry }}/codeit-nextjs-ecr-repo:latest
+            docker run -d --name nextjs-aws-test -p 3000:3000 ${{ steps.login-ecr.outputs.registry }}/codeit-nextjs-ecr-repo:latest
