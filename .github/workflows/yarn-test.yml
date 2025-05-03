@@ -1,0 +1,31 @@
+# name: Yarn Berry 성능 테스트
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   yarn-test:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Repository 체크아웃 (Zero-Install)
+#         uses: actions/checkout@v4
+#         with:
+#           submodules: recursive
+
+#       - name: Node.js 설치
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: 20
+
+#       - name: Yarn Berry 설치
+#         run: |
+#           corepack enable
+#           yarn set version berry
+
+#       - name: Yarn Berry 빌드 시간 측정
+#         run: |
+#           echo "=== Yarn Berry Zero-Install 테스트 시작 ==="
+#           time yarn build
+#           echo "=== Yarn Berry Zero-Install 테스트 종료 ==="
